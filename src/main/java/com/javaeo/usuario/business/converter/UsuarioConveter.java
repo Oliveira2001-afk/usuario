@@ -37,6 +37,7 @@ public class UsuarioConveter {
 				.cidade(enderecoDTO.getCidade())
 				.complemento(enderecoDTO.getComplemento())
 				.cep(enderecoDTO.getCep())
+				.estado(enderecoDTO.getEstado())
 				.build();
 	 }
 
@@ -49,7 +50,7 @@ public class UsuarioConveter {
 				.numero(telefonesDTO.getNumero())
 				.ddd(telefonesDTO.getDdd())
 				.build();
-	 }//
+	 }
 
 	public UsuarioDTO paraUsuarioDTO(Usuario usuarioDTO) {
 		return UsuarioDTO.builder()
@@ -75,6 +76,7 @@ public class UsuarioConveter {
 				.cidade(enderecoDTO.getCidade())
 				.complemento(enderecoDTO.getComplemento())
 				.cep(enderecoDTO.getCep())
+				.estado(enderecoDTO.getEstado())
 				.build();
 	}
 
