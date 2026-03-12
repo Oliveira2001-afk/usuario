@@ -19,7 +19,7 @@ public class UsuarioService {
 		Usuario usuario = usuarioConveter.paraUsuario(usuarioDTO);
 		return usuarioConveter.paraUsuarioDTO(
 				usuarioRepository.save(usuario)
-		);
+ 		);
 	}
 
 }
