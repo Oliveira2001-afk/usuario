@@ -17,6 +17,7 @@ import lombok.AllArgsConstructor;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+
 @Service
 @AllArgsConstructor
 public class UsuarioService {
@@ -29,13 +30,13 @@ public class UsuarioService {
 	private final TelefoneRepository telefoneRepository;
 
 
-    public UsuarioDTO salvaUsuario(UsuarioDTO usuarioDTO){
-       emailExiste(usuarioDTO.getEmail());
+	public UsuarioDTO salvaUsuario(UsuarioDTO usuarioDTO){
+		emailExiste(usuarioDTO.getEmail());
 		usuarioDTO.setSenha(passwordEncoder.encode(usuarioDTO.getSenha()));
 		Usuario usuario = usuarioConveter.paraUsuario(usuarioDTO);
 		return usuarioConveter.paraUsuarioDTO(
 				usuarioRepository.save(usuario)
- 		);
+		);
 	}
 
 	public void emailExiste(String email){
@@ -55,12 +56,12 @@ public class UsuarioService {
 
 	public UsuarioDTO buscarUsuarioPorEmail(String email){
 		try {
-		 return usuarioConveter.paraUsuarioDTO(
-				usuarioRepository.findByEmail(email)
-					.orElseThrow(
-				() -> new RescoucerNotFoundException("Email não encontrado " + email)
-						)
-		);
+			return usuarioConveter.paraUsuarioDTO(
+					usuarioRepository.findByEmail(email)
+							.orElseThrow(
+									() -> new RescoucerNotFoundException("Email não encontrado " + email)
+							)
+			);
 		}catch (RescoucerNotFoundException e){
 			throw new RescoucerNotFoundException("Email não encontrado " + email);
 		}
@@ -83,8 +84,8 @@ public class UsuarioService {
 		Usuario usuarioEntity = usuarioRepository.findByEmail(email).orElseThrow(() ->
 				new RescoucerNotFoundException("Email não localizado"));
 
-        //Mesclou os dados que recebemos na requisição DTo com os dados do banco de dados
-        Usuario usuario = usuarioConveter.updateUsuario(dto, usuarioEntity);
+		//Mesclou os dados que recebemos na requisição DTo com os dados do banco de dados
+		Usuario usuario = usuarioConveter.updateUsuario(dto, usuarioEntity);
 
 		//salvou os dados do usuário e depois pegou o retorno e converteu para  UsuarioDTO
 		return usuarioConveter.paraUsuarioDTO(usuarioRepository.save(usuario));

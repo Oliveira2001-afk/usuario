@@ -21,5 +21,5 @@ public class Telefone {
     @Column(name = "ddd", length = 3)
     private String ddd;
 	@Column(name = "usuario_id")
-	private long usario_id;
+	private long usuario_id;
 }

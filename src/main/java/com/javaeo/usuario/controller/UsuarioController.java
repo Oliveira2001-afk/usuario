@@ -4,7 +4,6 @@ import com.javaeo.usuario.business.UsuarioService;
 import com.javaeo.usuario.business.dto.EnderecoDTO;
 import com.javaeo.usuario.business.dto.TelefoneDTO;
 import com.javaeo.usuario.business.dto.UsuarioDTO;
-import com.javaeo.usuario.infrastructure.entity.Usuario;
 import com.javaeo.usuario.infrastructure.security.JwtUtil;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
